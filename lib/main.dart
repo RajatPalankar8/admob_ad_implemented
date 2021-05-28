@@ -10,7 +10,7 @@ void main() {
   runApp(MyApp());
 }
 
-class MyApp extends StatelessWidget {
+class MyApp extends StatelessWidget  {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
@@ -26,21 +26,20 @@ class MyApp extends StatelessWidget {
 }
 
 class MyHomepage extends StatefulWidget {
-
-
   @override
   _MyHomepageState createState() => _MyHomepageState();
 }
 
 class _MyHomepageState extends State<MyHomepage> {
   late List<String> datas;   // late for null safty
-
   late List<Object> dataads;  // will store both data + banner ads
 
+AdmobHelper admobHelper = new AdmobHelper();
   @override
   void initState() {
     // TODO: implement initState
     super.initState();
+
     datas = [];
 
     //generate array list of string
@@ -65,8 +64,6 @@ class _MyHomepageState extends State<MyHomepage> {
 
   }
 
-
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -80,6 +77,13 @@ class _MyHomepageState extends State<MyHomepage> {
                   title: Text(dataads[index].toString()),
                   leading: Icon(Icons.exit_to_app),
                   trailing: Icon(Icons.ice_skating),
+                  onTap: (){
+                    admobHelper.createInterad();
+                  },
+                  onLongPress: (){
+                    admobHelper.showInterad();
+                  },
+
                 );
               }else{
               // if dataads[index] is object (ads) then show container with adWidget
