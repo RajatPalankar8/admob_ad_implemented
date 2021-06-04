@@ -1,12 +1,9 @@
-# flutter_app_simple
+# flutter_admob_example
 
-A new Flutter application.
+A Complete admob integration in flutter app.
 
 ## Getting Started
 
-This project is a starting point for a Flutter application.
-
-A few resources to get you started if this is your first Flutter project:
 
 -  [Monetize your flutter app with google Admob ads](https://protocoderspoint.com/monetize-your-flutter-app-with-google-admob-ads/)
 -  [Native Admob Ads in Flutter Application](https://protocoderspoint.com/integrate-native-admob-ads-in-flutter-application/)
