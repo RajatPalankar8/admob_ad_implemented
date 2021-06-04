@@ -2,7 +2,10 @@ import 'dart:math';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_app_simple/AdmobHelper.dart';
+import 'package:flutter_app_simple/RewardedAdsExample.dart';
 import 'package:google_mobile_ads/google_mobile_ads.dart';
+import 'package:provider/provider.dart';
+
 
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
@@ -20,7 +23,7 @@ class MyApp extends StatelessWidget  {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: MyHomepage(),
+      home: ChangeNotifierProvider(create:(BuildContext context)=> AdmobHelper(),child: RewardedAdsPage()),
     );
   }
 }
@@ -31,10 +34,10 @@ class MyHomepage extends StatefulWidget {
 }
 
 class _MyHomepageState extends State<MyHomepage> {
-  late List<String> datas;   // late for null safty
-  late List<Object> dataads;  // will store both data + banner ads
+ List<String> datas;   // late for null safty
+   List<Object> dataads;  // will store both data + banner ads
 
-AdmobHelper admobHelper = new AdmobHelper();
+AdmobHelper admobHelper = new AdmobHelper();   // object to access methods of AdmobHelper class
   @override
   void initState() {
     // TODO: implement initState
@@ -78,10 +81,10 @@ AdmobHelper admobHelper = new AdmobHelper();
                   leading: Icon(Icons.exit_to_app),
                   trailing: Icon(Icons.ice_skating),
                   onTap: (){
-                    admobHelper.createInterad();
+                    admobHelper.createInterad();   // call create Interstitial ads
                   },
                   onLongPress: (){
-                    admobHelper.showInterad();
+                    admobHelper.showInterad();     // call  show Interstitial ads
                   },
 
                 );
